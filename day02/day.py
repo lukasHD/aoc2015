@@ -16,7 +16,7 @@ def alg1(data, print_debug):
         sides.append(values[0] * values[1])
         sides.append(values[0] * values[2])
         sides.append(values[1] * values[2])
-        print(sides)
+        if print_debug: print(sides)
         result += 2*sum(sides) + min(sides)
 
     return result
@@ -34,7 +34,7 @@ def alg2(data, print_debug):
         sides.sort()
 
         thisone = 2*sides[0] + 2*sides[1] + sides[0]*sides[1]*sides[2]
-        print(f"{sides} --> {thisone}")
+        if print_debug: print(f"{sides} --> {thisone}")
         result += thisone
     return result
 
@@ -68,13 +68,16 @@ def part2(fname: str, print_debug = False):
     print()
 
 
-if __name__ == '__main__':
-    print(os.path.normpath(__file__))
+def main():
     test_fname = os.path.join(os.path.dirname(__file__), 'test.txt')
     input_fname = os.path.join(os.path.dirname(__file__), 'input.txt')
 
     print("--- Day 2: I Was Told There Would Be No Math ---\n")
     # part1(test_fname, True)
     part1(input_fname)
-    part2(test_fname, True)
+    # part2(test_fname, True)
     part2(input_fname)
+
+
+if __name__ == '__main__':
+    main()

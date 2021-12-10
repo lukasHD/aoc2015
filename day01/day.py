@@ -31,11 +31,11 @@ def alg2(data, print_debug):
         else:
             raise ValueError
         if result == -1:
-            return i+1
+            return i + 1
     return None
 
 
-def part1(fname: str, print_debug = False):
+def part1(fname: str, print_debug=False):
     """Wrapper for the first Part. Loads data and sets debug output
 
     Args:
@@ -49,7 +49,8 @@ def part1(fname: str, print_debug = False):
     print(f"Result = {result}")
     print()
 
-def part2(fname: str, print_debug = False):
+
+def part2(fname: str, print_debug=False):
     """Wrapper for the second Part. Loads data and sets debug output
 
     Args:
@@ -64,13 +65,16 @@ def part2(fname: str, print_debug = False):
     print()
 
 
-if __name__ == '__main__':
-    print(os.path.normpath(__file__))
+def main():
     test_fname = os.path.join(os.path.dirname(__file__), 'test.txt')
     input_fname = os.path.join(os.path.dirname(__file__), 'input.txt')
 
-    print("\n")
+    print("--- Day 1: Not Quite Lisp ---\n")
     part1(test_fname, True)
     part1(input_fname)
     part2(test_fname, True)
     part2(input_fname)
+
+
+if __name__ == '__main__':
+    main()
