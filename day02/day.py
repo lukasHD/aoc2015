@@ -10,29 +10,33 @@ import helper.helper as helper
 def alg1(data, print_debug):
     """Runs algo for first part of the day"""
     result = 0
-    for el in data[0]:
-        if el == "(":
-            result += 1
-        elif el == ")":
-            result -= 1
-        else:
-            raise ValueError
+    for line in data:
+        sides = []
+        values = list(map(int, line.split("x")))
+        sides.append(values[0] * values[1])
+        sides.append(values[0] * values[2])
+        sides.append(values[1] * values[2])
+        print(sides)
+        result += 2*sum(sides) + min(sides)
+
     return result
 
 
 def alg2(data, print_debug):
     """Runs algo for second part of the day"""
     result = 0
-    for i, el in enumerate(data[0]):
-        if el == "(":
-            result += 1
-        elif el == ")":
-            result -= 1
-        else:
-            raise ValueError
-        if result == -1:
-            return i+1
-    return None
+    for line in data:
+        sides = []
+        values = list(map(int, line.split("x")))
+        sides.append(values[0])
+        sides.append(values[1])
+        sides.append(values[2])
+        sides.sort()
+
+        thisone = 2*sides[0] + 2*sides[1] + sides[0]*sides[1]*sides[2]
+        print(f"{sides} --> {thisone}")
+        result += thisone
+    return result
 
 
 def part1(fname: str, print_debug = False):
@@ -69,8 +73,8 @@ if __name__ == '__main__':
     test_fname = os.path.join(os.path.dirname(__file__), 'test.txt')
     input_fname = os.path.join(os.path.dirname(__file__), 'input.txt')
 
-    print("\n")
-    part1(test_fname, True)
+    print("--- Day 2: I Was Told There Would Be No Math ---\n")
+    # part1(test_fname, True)
     part1(input_fname)
     part2(test_fname, True)
     part2(input_fname)
