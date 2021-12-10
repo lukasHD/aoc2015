@@ -10,29 +10,13 @@ import helper.helper as helper
 def alg1(data, print_debug):
     """Runs algo for first part of the day"""
     result = 0
-    for el in data[0]:
-        if el == "(":
-            result += 1
-        elif el == ")":
-            result -= 1
-        else:
-            raise ValueError
     return result
 
 
 def alg2(data, print_debug):
     """Runs algo for second part of the day"""
     result = 0
-    for i, el in enumerate(data[0]):
-        if el == "(":
-            result += 1
-        elif el == ")":
-            result -= 1
-        else:
-            raise ValueError
-        if result == -1:
-            return i+1
-    return None
+    return result
 
 
 def part1(fname: str, print_debug = False):
